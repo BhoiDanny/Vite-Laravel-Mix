@@ -8,9 +8,12 @@ install_laravel_mix()
     touch webpack.mix.js
     #add code to webpack.mix.js
 
-echo "
-/*
- |--------------------------------------------------------------------------
+echo "const mix = require('laravel-mix');
+
+mix.options({
+    processCssUrls: false // Process/optimize relative stylesheet url()'s. Set to false, if you don't want them touched.
+  });
+/*|--------------------------------------------------------------------------
  | Mix Asset Management
  |--------------------------------------------------------------------------
  |
@@ -18,8 +21,8 @@ echo "
  | for your Laravel applications. By default, we are compiling the CSS
  | file for the application as well as bundling up all the JS files.
  |*/
-    const mix = require('laravel-mix');
-        mix.js('resources/js/app.js', 'public/js')
+
+mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css');" > webpack.mix.js
 }
 
@@ -163,11 +166,8 @@ configure_vite_file()
     echo "Configuring Vite"
 
     touch vite.config.js
-echo "
-import { defineConfig } from 'vite';
+echo "import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
-// import react from '@vitejs/plugin-react';
-// import vue from '@vitejs/plugin-vue';
 
 export default defineConfig({
     plugins: [
