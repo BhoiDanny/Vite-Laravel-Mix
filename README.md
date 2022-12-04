@@ -3,7 +3,9 @@ Script to change from Vite to Laravel Mix
 
 ### Start
 #### Run Command on Command Prompt (recommended - gitbash)
-```sh $ sh sannytech.sh ```
+```sh
+$sh sannytech.sh 
+```
 
 #### Shell sample
 ```sh
